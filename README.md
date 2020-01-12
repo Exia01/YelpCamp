@@ -1,2 +1,3 @@
 # YelpCamp
-Campgrounds reviews and listing. 
+
+Tech - Node, Express, Bootstrap 4 and Mongo
