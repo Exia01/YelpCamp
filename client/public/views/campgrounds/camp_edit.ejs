@@ -1,0 +1,34 @@
+<% include ../partials/header %>
+
+    <section>
+        <div class="container my-5">
+            <h1 class="text-center">Edit <%=campground.name%></h1>
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-sm-10 col-md-6 col-lg-5">
+                    <form action="/campgrounds/<%=campground._id%>/edit?_method=PUT" method="POST">
+                        <div class="form-group">
+                            <label for="Campground Name">Campgroup Name</label>
+                            <input type="text" class="form-control" name="campground[name]" value="<%=campground.name%>" id="" aria-describedby="" placeholder="Campground name">
+                        </div>
+                        <div class="form-group">
+                            <label for="Campground Name">Campgroup Price</label>
+                            <input type="number" class="form-control" name="campground[price]" id="" aria-describedby=""  value="<%=campground.price%>" min="0.01" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="Campground Name">Campgroup Image</label>
+                            <input type="text" class="form-control" name="campground[image]" value="<%=campground.image%>" id="" placeholder="Image URL">
+                        </div>
+                        <div class="form-group">
+                            <label for="Campground description">Campgroup Description</label>
+                            <input type="text" class="form-control" name="campground[description]" value="<%=campground.description%>" id="" placeholder="Camp description">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Edit Campground</button>
+                    </form>
+                    <a href="/campgrounds/<%=campground._id%>">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </section>
+       
+
+<% include ../partials/footer %>

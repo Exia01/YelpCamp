@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+
+    <div class="container">
+        <div class="container">
+            <header class="jumbotron">
+                <h1>Welcome to YelpCamp!</h1>
+                <p>View our hand-picked campgrounds!</p>
+                <p><a class="btn btn-primary btn-lg" href="/campgrounds/new">Add new Campground</a></p>
+            </header>
+        </div>
+        <h1>Hello There!</h1>
+        <a href="/">home</a>
+
+        <% if (campgrounds !== undefined ){%>
+            <div class="row">
+                <% campgrounds.forEach(site =>{ %>
+                <div class="col-sm-6 col-md-4 col-lg-4"> 
+                <div class="card my-2">
+                        <img src="<%= site.image %>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= site.name %></h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="/campgrounds/<%= site._id %>" class="btn btn-info">More info</a>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+
+
+<% include ../partials/footer %>

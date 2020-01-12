@@ -1,0 +1,2 @@
+- errors not passing to catch when creating a new campground
+- 
