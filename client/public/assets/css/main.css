@@ -1,0 +1,16 @@
+html,
+body {
+  height: 100%;
+}
+
+
+footer li, footer ul{
+    list-style: none;
+}
+
+footer article{
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
