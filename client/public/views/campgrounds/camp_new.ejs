@@ -1,34 +1,50 @@
 <% include ../partials/header %>
 
-    <section>
-        <div class="container my-5">
-            <h1 class="text-center">Add a new Campground</h1>
-            <div class="row d-flex justify-content-center align-items-center">
-                <div class="col-sm-10 col-md-6 col-lg-5">
-                    <form action="/campgrounds" method="POST">
-                        <div class="form-group">
-                            <label for="Campground Name">Campgroup Name</label>
-                            <input type="text" class="form-control" name="name" id="" aria-describedby="" placeholder="Campground name">
-                        </div>
-                        <div class="form-group">
-                            <label for="Campground Name">Campgroup Price</label>
-                            <input type="number" class="form-control" name="price" id="" aria-describedby="" placeholder="price" min="0.01" step="0.01">
-                        </div>
-                        <div class="form-group">
-                            <label for="Campground Name">Campgroup Image</label>
-                            <input type="text" class="form-control" name="image" id="" placeholder="Image URL">
-                        </div>
-                        <div class="form-group">
-                            <label for="Campground description">Campgroup Description</label>
-                            <input type="text" class="form-control" name="description" id="" placeholder="Camp description">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Add Campground</button>
-                    </form>
-                    <a href="/campgrounds">Go Back</a>
-                </div>
+<section>
+
+    <% include ../messages/mainMessageBlock %>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1 class="display-4">Add Campground</h1>
+
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-sm-10 col-md-6 col-lg-5 mx-auto">
+                <form action="/campgrounds" method="POST">
+                    <div class="form-group">
+                        <label for="Campground Name">Campgroup Name</label>
+                        <input type="text" class="form-control" name="name" id="" aria-describedby=""
+                            placeholder="Campground name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Campground Name">Campgroup Price</label>
+                        <input type="number" class="form-control" name="price" id="" aria-describedby=""
+                            placeholder="price" min="0.01" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="Campground Name">Campgroup Image</label>
+                        <input type="text" class="form-control" name="image" id="" placeholder="Image URL">
+                    </div>
+                    <div class="form-group">
+                        <label for="Campground description">Campgroup Description</label>
+                        <input type="text" class="form-control" name="description" id="" placeholder="Camp description">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Add Campground</button>
+                </form>
+                <a href="/campgrounds">Go Back</a>
             </div>
         </div>
-    </section>
-       
+    </div>
+
+    <div class="container">
+        <p class="">
+            View campgrounds<a class="btn btn-link px-1 py-0 mb-1" href="/campgrounds" role="button">Here</a>to Login
+        </p>
+    </div>
+</section>
+
 
 <% include ../partials/footer %>
