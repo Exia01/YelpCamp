@@ -17,45 +17,49 @@ passport.deserializeUser(User.deserializeUser());
 
 /* Auth Routes */
 //register form
-router.get('/register', (req, res) => {
-  res.render('accounts/user_register');
+router.get("/register", (req, res) => {
+  res.render("accounts/user_register");
 });
 
 //sign up logic
-router.post('/register', (req, res, next) => {
-  let password = req.body.password
-  let newUser = new User({username: req.body.username})
+router.post("/register", (req, res, next) => {
+  let password = req.body.password;
+  let newUser = new User({ username: req.body.username });
   User.register(newUser, password, (err, user) => {
     if (err) {
-      console.log(err)
-      req.flash("error", err.message)
-      return res.redirect('back');
+      console.log(err);
+      req.flash("error", err.message);
+      return res.redirect("back");
     }
     passport.authenticate("local")(req, res, function () {
-      req.flash("success", `Welcome to Yelcamp, ${user.username}`)
-      res.redirect('/campgrounds')
-    })
-  })
-})
+      req.flash("success", `Welcome to Yelcamp, ${user.username}`);
+      res.redirect("/campgrounds");
+    });
+  });
+});
 
 //login form
-router.get('/login', (req, res) => {
-  res.render('accounts/user_login',)
-})
+router.get("/login", (req, res) => {
+  res.render("accounts/user_login");
+});
 //login logic
-router.post("/login", passport.authenticate("local", {
-  failureRedirect:"/accounts/login",
-}), (req, res) => {
-  req.flash("success", "Logged in successfully")
-  let redirectionUrl = req.session.redirectUrl || '/campgrounds';
-  res.redirect(redirectionUrl);
-})
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    failureRedirect: "/accounts/login"
+  }),
+  (req, res) => {
+    req.flash("success", "Logged in successfully");
+    let redirectionUrl = req.session.redirectUrl || "/campgrounds";
+    res.redirect(redirectionUrl);
+  }
+);
 
 //Logout route
-router.get('/logout', (req, res) => {
+router.get("/logout", (req, res) => {
   // req.session.destroy(); // // won't work with flash
-  req.logout()
-  req.flash("success", "You've been logged out.")
-  res.redirect('/campgrounds')
-})
+  req.logout();
+  req.flash("success", "You've been logged out.");
+  res.redirect("/campgrounds");
+});
 module.exports = router;

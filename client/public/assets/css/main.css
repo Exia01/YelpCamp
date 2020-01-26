@@ -3,14 +3,17 @@ body {
   height: 100%;
 }
 
-
-footer li, footer ul{
-    list-style: none;
+footer li,
+footer ul {
+  list-style: none;
+}
+footer {
+  border-top: 1px solid #343a40;
 }
 
-footer article{
-    color: white;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
+footer article {
+  color: #343a40 !important;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
 }
