@@ -12,7 +12,7 @@ userMiddleware.isLoggedIn = (req, res, next) => {
   // console.log(req.headers.referer)
   // console.log(req.url)
   req.session.redirectUrl = req.originalUrl;
-  req.flash("error", "Sorry, you need to be logged in to do that");
+  req.flash("error", "To continue, please log in");
   return res.redirect("/accounts/login");
 };
 

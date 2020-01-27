@@ -12,6 +12,7 @@ const userMiddleware    = require('../middleware/authUser')
 passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
 //Login Middleware
 
 
@@ -23,6 +24,7 @@ router.get("/register", (req, res) => {
 
 //sign up logic
 router.post("/register", (req, res, next) => {
+  
   let password = req.body.password;
   let newUser = new User({ username: req.body.username });
   User.register(newUser, password, (err, user) => {
@@ -46,7 +48,9 @@ router.get("/login", (req, res) => {
 router.post(
   "/login",
   passport.authenticate("local", {
-    failureRedirect: "/accounts/login"
+    failureRedirect: "/accounts/login", 
+    //custom message
+    failureFlash: 'Invalid username or password.' ,
   }),
   (req, res) => {
     req.flash("success", "Logged in successfully");
