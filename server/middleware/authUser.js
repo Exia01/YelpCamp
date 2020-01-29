@@ -6,6 +6,7 @@ var userMiddleware = {};
 
 // checks if user is logged in
 userMiddleware.isLoggedIn = (req, res, next) => {
+  console.log(req)
   if (req.isAuthenticated()) {
     return next();
   }

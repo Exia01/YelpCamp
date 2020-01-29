@@ -4,11 +4,7 @@ const express = require("express");
   (campService = require("../controllers/CampService")),
   (usrMiddleware = require("../middleware/authUser.js"));
 
-// const asyncMiddleware = fn =>
-// (req, res, next) => {
-//   Promise.resolve(fn(req, res, next))
-//     .catch(next);
-// };
+
 //landing
 router.get("/", (req, res) => {
   res.render("camp_landing");

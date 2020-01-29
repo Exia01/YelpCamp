@@ -6,11 +6,16 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please provide a username'],
         minlength: [2, 'username must be a least two characters'],
+        index: true,
+        unique: true,
       },
-  password: String
+  password:{
+    type: String,
+    minlength: [5, 'Password must be at least 5 characters'],
+  }
 });
 
-UserSchema.plugin(passportLocalMongoose);
+UserSchema.plugin(passportLocalMongoose, ); //explicit username declaration. Not really needed?
  
 module.exports = mongoose.model('User', UserSchema);
 // Setting up username
